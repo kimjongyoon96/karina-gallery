@@ -13,5 +13,12 @@
     "sourceType": "module",
     "project": "./tsconfig.json" // config 정보 추가
   },
-  "rules": {}
+  "rules": {
+    "@typescript-eslint/no-misused-promises": [
+      "error",
+      {
+        "checksVoidReturn": false
+      }
+    ]
+  }
 }
