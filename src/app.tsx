@@ -1,26 +1,28 @@
-// import React, { useState } from 'react';
-// import ReactDOM from 'react-dom';
+// src/App.tsx
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Header from './components/header/header'; // Header 컴포넌트 임포트
+import Menubar from './components/menubar/menubar';
+import MainContens from './components/maincontens/maincontens';
+import SeachBar from './components/seachbar/seachbar';
+import Number from './components/movepage/movepage';
+import SecondMain from './components/secondmain/secondmain';
 
-// const App: React.FC = () => {
-//   const [message, setMessage] = useState<string>('');
+const App: React.FC = () => {
+  return (
+    <Router>
+      <div>
+        <Header />
+        <Menubar />
+        <Routes>
+          <Route path="/" element={<MainContens />} />
+          <Route path="/contact" element={<SecondMain />} />
+        </Routes>
+        <SeachBar />
+        <Number />
+      </div>
+    </Router>
+  );
+};
 
-//   const fetchCuteMessage = async (): Promise<void> => {
-//     try {
-//       const response = await fetch('http://localhost:3001/cute');
-//       const data = await response.text();
-//       setMessage(data);
-//     } catch (error) {
-//       console.error('Error fetching data: ', error);
-//       setMessage('Error fetching data');
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <button onClick={fetchCuteMessage}> Cute Message</button>
-//       <p>{message}</p>
-//     </div>
-//   );
-// };
-
-// ReactDOM.render(<App />, document.getElementById('root'));
+export default App;
