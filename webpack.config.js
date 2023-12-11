@@ -20,6 +20,14 @@ module.exports = {
             // @babel/preset-typescript를 추가합니다.
           }
         }
+      },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.(png|jpg|gif|svg)$/,
+        type: 'asset/resource'
       }
     ]
   },
